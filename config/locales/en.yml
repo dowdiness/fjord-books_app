@@ -215,6 +215,7 @@ en:
     pm: pm
   views:
     common:
+      index: "%{name} list"
       show: Show
       edit: Edit
       destroy: Destroy
@@ -223,6 +224,9 @@ en:
       delete_confirm: "Are you sure?"
       title_new: "New %{name}"
       title_edit: "Editing %{name}"
+    devise:
+      edit: 'Edit profile'
+      logout: 'Logout'
   controllers:
     common:
       notice_create: "%{name} was successfully created."

@@ -17,14 +17,14 @@
       <p id="alert"><%= alert %></p>
     <% end %>
     <%= yield %>
-    <p class="navbar-text pull-right">
+    <p>
       <% if user_signed_in? %>
-        Logged in as <strong><%= current_user.email %></strong>.
-        <%= link_to 'Edit profile', edit_user_registration_path, class: 'navbar-link' %> |
-        <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'navbar-link'  %>
-      <% else %>
-        <%= link_to "Sign up", new_user_registration_path, class: 'navbar-link'  %> |
-        <%= link_to "Login", new_user_session_path, class: 'navbar-link'  %>
+        <%= link_to t('views.common.index', name: Book.model_name.human), books_path %> |
+        <%= link_to t('views.common.index', name: User.model_name.human), users_path %>
+        <br>
+        <strong><%= current_user.email %></strong>.
+        <%= link_to t('views.devise.edit'), edit_user_registration_path %> |
+        <%= link_to t('views.devise.logout'), destroy_user_session_path, method: :delete %>
       <% end %>
     </p>
   </body>

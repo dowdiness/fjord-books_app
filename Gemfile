@@ -30,6 +30,9 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 # Devise is a flexible authentication solution for Rails based on Warden
 gem 'devise'
+gem 'devise-i18n'
+
+gem 'net-smtp'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
