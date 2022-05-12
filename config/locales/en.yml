@@ -225,7 +225,7 @@ en:
       title_new: "New %{name}"
       title_edit: "Editing %{name}"
     devise:
-      edit: 'Edit profile'
+      edit: 'Edit acount'
       logout: 'Logout'
   controllers:
     common:

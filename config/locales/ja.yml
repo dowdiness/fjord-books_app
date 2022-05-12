@@ -223,7 +223,7 @@ ja:
       next: '次'
       truncate: '...'
     devise:
-      edit: 'プロフィールの編集'
+      edit: 'アカウントの編集'
       logout: 'ログアウト'
   controllers:
     common:
