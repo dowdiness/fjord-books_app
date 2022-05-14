@@ -6,11 +6,12 @@ en:
     destroy: 'Book was successfully destroyed.'
     index:
       destroy: 'Destroy'
+    edit:
+      editing_book: 'Editing Book'
   confirm: 'Are you sure?'
   new_book: 'New Book'
   show: 'Show'
   edit: 'Edit'
-  editing_book: 'Editing Book'
   back: 'Back'
   activerecord:
     errors:
