@@ -4,14 +4,13 @@ en:
     create: 'Book was successfully created.'
     update: 'Book was successfully updated.'
     destroy: 'Book was successfully destroyed.'
-    index:
-      destroy: 'Destroy'
     edit:
       editing_book: 'Editing Book'
   confirm: 'Are you sure?'
   new_book: 'New Book'
   show: 'Show'
   edit: 'Edit'
+  destroy: 'Destroy'
   back: 'Back'
   activerecord:
     errors:
