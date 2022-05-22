@@ -27,7 +27,9 @@
 
 <p>
   <strong><%= User.human_attribute_name(:avatar) %>:</strong>
-  <%= image_tag @user.avatar.representation(resize_to_limit: [100, 100]) %>
+  <% unless @user.avatar.blank? %>
+    <%= image_tag @user.avatar.representation(resize_to_limit: [100, 100]) %>
+  <% end %>
 </p>
 
 
