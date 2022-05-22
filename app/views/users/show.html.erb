@@ -33,6 +33,38 @@
   <% end %>
 </p>
 
+<p>
+  <strong>フォロー数:</strong>
+  <%= @user.followings.count %>
+</p>
+
+<p>
+  <strong>フォロワー数:</strong>
+  <%= @user.followers.count %>
+</p>
+
+<% if current_user != @user %>
+  <% if current_user.following?(@user) %>
+    <%= form_with(url: follow_path, method: :delete) do |f| %>
+      <%= f.submit 'フォロー解除する' %>
+    <% end %>
+  <% else %>
+    <%= form_with(url: follows_path, method: :post) do |f| %>
+      <div><%= hidden_field_tag :following_id, @user.id %></div>
+      <%= f.submit 'フォローする' %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<ul>
+  <li>
+    <%= link_to 'フォロー一覧', followings_user_path %>
+  </li>
+  <li>
+    <%= link_to 'フォロワー一覧', followers_user_path %>
+  </li>
+</ul>
+
 <% if current_user == @user %>
   <%= link_to t('views.common.edit'), edit_user_registration_path %> |
 <% end %>
