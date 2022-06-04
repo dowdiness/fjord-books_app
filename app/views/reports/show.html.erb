@@ -13,5 +13,7 @@
   <%= @report.content %>
 </p>
 
-<%= link_to t('views.common.edit'), edit_report_path(@report) %> |
-<%= link_to t('views.common.back'), books_path %>
+<% if current_user.id == @report.user_id %>
+  <%= link_to t('views.common.edit'), edit_report_path(@report) %> |
+<% end %>
+<%= link_to t('views.common.back'), reports_path %>
