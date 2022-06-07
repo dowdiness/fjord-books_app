@@ -1,0 +1,9 @@
+<h1><%= Comment.model_name.human %></h1>
+
+<%= render 'comments/list', commentable: @commentable, comments: @comments %>
+
+<br>
+
+<%= paginate @comments %>
+
+<%= link_to t('views.common.new'), new_polymorphic_path([@commentable, @comment]) %>
