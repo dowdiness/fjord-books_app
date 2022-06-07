@@ -8,6 +8,7 @@ ja:
       active_storage/variant_record: アクティブなストレージ/バリアントレコード  #g
       relationship: 関係  #g
       report: 日報  #g
+      comment: コメント
 
     attributes:
       book:
@@ -67,3 +68,7 @@ ja:
         content: コンテンツ  #g
         title: 題名  #g
         created_at: 投稿日
+
+      comment:
+        content: コンテンツ
+        created_at: 投稿日時
