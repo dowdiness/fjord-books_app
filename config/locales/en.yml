@@ -253,6 +253,7 @@ en:
       notice_create: "%{name} was successfully created."
       notice_update: "%{name} was successfully updated."
       notice_destroy: "%{name} was successfully destroyed."
+      notice_only_author: "Only the author can edit %{name}."
   relationships:
     create:
       notice: "Successfully followed."
