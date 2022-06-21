@@ -20,7 +20,7 @@
   <%= @comment.content %>
 </p>
 
-<% if current_user.id == @comment.user_id %>
+<% if @comment.author? %>
   <%= link_to t('views.common.edit'), edit_polymorphic_url([@commentable, @comment]) %> |
 <% end %>
 

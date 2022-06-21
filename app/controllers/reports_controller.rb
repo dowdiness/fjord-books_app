@@ -63,7 +63,7 @@ class ReportsController < ApplicationController
   end
 
   def only_author
-    return if @report.user_id == current_user.id
+    return if @report.author?
 
     redirect_to reports_url, status: :unauthorized, alert: 'Only authors can edit report'
   end
