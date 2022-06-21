@@ -12,26 +12,23 @@
 
     <tbody>
       <% comments.each do |comment| %>
-        <%# これがないと何故か空の空行が余分に作られる %>
-        <% unless comments.last == comment %>
-          <tr>
-            <td><%= comment.created_at.localtime.strftime('%Y-%m-%d %H:%M') %></td>
-            <% if comment.user.name.present? %>
-              <td><%= comment.user.name %></td>
-            <% else %>
-              <td><%= comment.user.email %></td>
-            <% end %>
-            <td><%= comment.content %></td>
-            <td><%= link_to t('views.common.show'), polymorphic_path([commentable, comment]) %></td>
-            <% if current_user.id == comment.user_id %>
-              <td><%= link_to t('views.common.edit'), edit_polymorphic_path([commentable, comment]) %></td>
-              <td><%= link_to t('views.common.destroy'), polymorphic_path([commentable, comment]), method: :delete, data: { confirm: t('views.common.delete_confirm') } %></td>
-            <% end %>
-          </tr>
-        <% end %>
+        <tr>
+          <td><%= comment.created_at.localtime.strftime('%Y-%m-%d %H:%M') %></td>
+          <% if comment.user.name.present? %>
+            <td><%= comment.user.name %></td>
+          <% else %>
+            <td><%= comment.user.email %></td>
+          <% end %>
+          <td><%= comment.content %></td>
+          <td><%= link_to t('views.common.show'), polymorphic_path([commentable, comment]) %></td>
+          <% if current_user.id == comment.user_id %>
+            <td><%= link_to t('views.common.edit'), edit_polymorphic_path([commentable, comment]) %></td>
+            <td><%= link_to t('views.common.destroy'), polymorphic_path([commentable, comment]), method: :delete, data: { confirm: t('views.common.delete_confirm') } %></td>
+          <% end %>
+        </tr>
       <% end %>
     </tbody>
   </table>
-  <% else %>
-    <h2>コメントはありません</h2>
+<% else %>
+  <h2>コメントはありません</h2>
 <% end %>
