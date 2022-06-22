@@ -31,7 +31,7 @@
 
 <%= render 'comments/list', commentable: @report, comments: @comments %>
 
-<% if @report.author? %>
+<% if @report.author?(current_user) %>
   <%= link_to t('views.common.edit'), edit_report_path(@report) %> |
 <% end %>
 <%= link_to t('views.common.back'), reports_path %>

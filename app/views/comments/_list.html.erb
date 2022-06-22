@@ -21,7 +21,7 @@
           <% end %>
           <td><%= comment.content %></td>
           <td><%= link_to t('views.common.show'), polymorphic_path([commentable, comment]) %></td>
-          <% if comment.author? %>
+          <% if comment.author?(current_user) %>
             <td><%= link_to t('views.common.edit'), edit_polymorphic_path([commentable, comment]) %></td>
             <td><%= link_to t('views.common.destroy'), polymorphic_path([commentable, comment]), method: :delete, data: { confirm: t('views.common.delete_confirm') } %></td>
           <% end %>

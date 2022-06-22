@@ -6,7 +6,7 @@ class Report < ApplicationRecord
 
   cattr_accessor :current_user, instance_accessor: false
 
-  def author?
-    @@current_user.id == user_id
+  def author?(target_user)
+    target_user.id == user_id
   end
 end

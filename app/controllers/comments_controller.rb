@@ -53,7 +53,7 @@ class CommentsController < ApplicationController
   end
 
   def only_author
-    return if @comment.author?
+    return if @comment.author?(current_user)
 
     redirect_to @commentable, status: :unauthorized, alert: t('controllers.common.notice_only_author', name: Comment.model_name.human)
   end
