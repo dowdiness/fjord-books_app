@@ -11,5 +11,6 @@ Rails.application.routes.draw do
       get :followings, :followers
     end
   end
-  resources :follows, only: %i[create destroy]
+  post 'follows/:id', to: 'follows#create'
+  delete 'follows/:id', to: 'follows#destroy'
 end

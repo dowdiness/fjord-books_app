@@ -45,12 +45,11 @@
 
 <% if current_user != @user %>
   <% if current_user.following?(@user) %>
-    <%= form_with(url: follow_path, method: :delete) do |f| %>
+    <%= form_with(url: "follows/#{@user.id}", method: :delete) do |f| %>
       <%= f.submit 'フォロー解除する' %>
     <% end %>
   <% else %>
-    <%= form_with(url: follows_path, method: :post) do |f| %>
-      <div><%= hidden_field_tag :following_id, @user.id %></div>
+    <%= form_with(url: "follows/#{@user.id}", method: :post) do |f| %>
       <%= f.submit 'フォローする' %>
     <% end %>
   <% end %>
