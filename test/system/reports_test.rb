@@ -45,11 +45,13 @@ class ReportsTest < ApplicationSystemTestCase
 
     click_on '編集', match: :first, exact: true
 
-    fill_in 'タイトル', with: '新しいタイトル'
-    fill_in '内容', with: '新しい内容'
+    fill_in 'タイトル', with: '新しい更新タイトル'
+    fill_in '内容', with: '新しい更新内容'
     click_on '更新する'
 
     assert_text '日報が更新されました。'
+    assert_text '新しい更新タイトル'
+    assert_text '新しい更新内容'
   end
 
   test 'delete report' do
