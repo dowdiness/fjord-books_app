@@ -69,6 +69,7 @@ class ReportsTest < ApplicationSystemTestCase
     end
 
     assert_text '日報が削除されました。'
+    assert_no_text '新しいタイトル'
   end
 
   test 'create comment' do
