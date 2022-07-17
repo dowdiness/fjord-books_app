@@ -31,6 +31,8 @@ class ReportsTest < ApplicationSystemTestCase
     click_on '登録する'
 
     assert_text '日報が作成されました。'
+    assert_text '新しいタイトル'
+    assert_text '新しい内容'
   end
 
   test 'edit report' do
