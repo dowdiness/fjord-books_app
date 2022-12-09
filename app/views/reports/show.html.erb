@@ -1,0 +1,37 @@
+<h1><%= t('views.common.title_show', name: Report.model_name.human) %></h1>
+
+<p>
+  <strong><%= Report.human_attribute_name(:title) %>:</strong>
+  <%= @report.title %>
+</p>
+
+<p>
+  <strong><%= Report.human_attribute_name(:created_at) %>:</strong>
+  <%= @report.created_at.localtime.strftime('%Y-%m-%d') %>
+</p>
+
+<p>
+  <% if @report.user.name.present? %>
+    <strong><%= User.human_attribute_name(:name) %>:</strong>
+    <%= @report.user.name %>
+  <% else %>
+    <strong><%= User.human_attribute_name(:email) %>:</strong>
+    <%= @report.user.email %>
+  <% end %>
+</p>
+
+<p>
+  <strong><%= Report.human_attribute_name(:content) %>:</strong>
+  <%= @report.content %>
+</p>
+
+<h2>コメントの投稿</h2>
+
+<%= render 'comments/form', commentable: @report, comment: @comment %>
+
+<%= render 'comments/list', commentable: @report, comments: @comments %>
+
+<% if @report.author?(current_user) %>
+  <%= link_to t('views.common.edit'), edit_report_path(@report) %> |
+<% end %>
+<%= link_to t('views.common.back'), reports_path %>

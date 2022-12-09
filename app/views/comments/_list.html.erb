@@ -1,0 +1,34 @@
+<% if comments.exists? %>
+  <h2>コメント一覧</h2>
+  <table>
+    <thead>
+      <tr>
+        <th><%= Comment.human_attribute_name(:created_at) %></th>
+        <th><%= User.human_attribute_name(:name) + '|' + User.human_attribute_name(:email) %></th>
+        <th><%= Comment.human_attribute_name(:content) %></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% comments.each do |comment| %>
+        <tr>
+          <td><%= comment.created_at.localtime.strftime('%Y-%m-%d %H:%M') %></td>
+          <% if comment.user.name.present? %>
+            <td><%= comment.user.name %></td>
+          <% else %>
+            <td><%= comment.user.email %></td>
+          <% end %>
+          <td><%= comment.content %></td>
+          <td><%= link_to t('views.common.show'), polymorphic_path([commentable, comment]) %></td>
+          <% if comment.author?(current_user) %>
+            <td><%= link_to t('views.common.edit'), edit_polymorphic_path([commentable, comment]) %></td>
+            <td><%= link_to t('views.common.destroy'), polymorphic_path([commentable, comment]), method: :delete, data: { confirm: t('views.common.delete_confirm') } %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <h2>コメントはありません</h2>
+<% end %>
