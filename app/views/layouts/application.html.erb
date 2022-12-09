@@ -10,6 +10,22 @@
   </head>
 
   <body>
+    <% if notice %>
+      <p id="notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p id="alert"><%= alert %></p>
+    <% end %>
     <%= yield %>
+    <p>
+      <% if user_signed_in? %>
+        <%= link_to t('views.common.index', name: Book.model_name.human), books_path %> |
+        <%= link_to t('views.common.index', name: User.model_name.human), users_path %>
+        <br>
+        <strong><%= current_user.email %></strong>.
+        <%= link_to t('views.devise.edit'), edit_user_registration_path %> |
+        <%= link_to t('views.devise.logout'), destroy_user_session_path, method: :delete %>
+      <% end %>
+    </p>
   </body>
 </html>

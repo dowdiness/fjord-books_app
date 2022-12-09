@@ -28,6 +28,12 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
+# Devise is a flexible authentication solution for Rails based on Warden
+gem 'devise'
+gem 'devise-i18n'
+
+gem 'net-smtp'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -36,6 +42,8 @@ end
 group :development do
   gem 'faker'
   gem 'i18n_generators'
+  gem 'letter_opener'
+  gem 'letter_opener_web', '~> 2.0'
   gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'rubocop-fjord', require: false

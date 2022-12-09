@@ -207,6 +207,7 @@ ja:
     pm: 午後
   views:
     common:
+      index: "%{name}一覧"
       show: 詳細
       edit: 編集
       destroy: 削除
@@ -221,6 +222,9 @@ ja:
       previous: '前'
       next: '次'
       truncate: '...'
+    devise:
+      edit: 'アカウントの編集'
+      logout: 'ログアウト'
   controllers:
     common:
       notice_create: "%{name}が作成されました。"
